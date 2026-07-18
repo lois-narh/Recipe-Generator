@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
@@ -36,7 +37,7 @@ export default function LoginPage() {
           {/*<Carrot size={22} strokeWidth={2} />*/}
           <span
             style={{ fontFamily: "'Poppins', serif" }}
-            className="text-lg 550 tracking-tight"
+            className="text-lg font-medium tracking-tight"
           >
             Recipe Generator
           </span>
@@ -130,9 +131,12 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-[#6B6F63] mt-6">
             New here?{" "}
-            <button className="text-[#4B6B3F] font-medium hover:underline">
+            <Link
+              to="/signup"
+              className="text-[#4B6B3F] font-medium hover:underline"
+            >
               Create an account
-            </button>
+            </Link>
           </p>
         </div>
       </div>
