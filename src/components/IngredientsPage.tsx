@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { X, Plus, Sprout } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function IngredientsPage() {
   const [ingredientInput, setIngredientInput] = useState<string>("");
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [allergyInput, setAllergyInput] = useState<string>("");
   const [allergies, setAllergies] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   function addIngredient() {
     const trimmed = ingredientInput.trim();
@@ -124,6 +126,7 @@ export default function IngredientsPage() {
         </div>
 
         <button
+          onClick={() => navigate("/results")}
           disabled={ingredients.length === 0}
           className="w-full py-2.5 rounded-lg bg-[#4B6B3F] text-white text-sm font-medium hover:bg-[#3E5A34] active:scale-[0.99] transition disabled:opacity-40 disabled:cursor-not-allowed"
         >
