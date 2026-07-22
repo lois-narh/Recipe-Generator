@@ -13,24 +13,42 @@ const steps = [
   {
     number: "1",
     title: "List Ingredients",
-    description: "Simply type out the items in your fridge or pantry. Our AI understands any combination.",
+    description:
+      "Simply type out the items in your fridge or pantry. Our AI understands any combination.",
   },
   {
     number: "2",
     title: "Customize",
-    description: "Filter by dietary needs, prep time, or cuisine style — vegan, keto, gluten-free, and more.",
+    description:
+      "Filter by dietary needs, prep time, or cuisine style — vegan, keto, gluten-free, and more.",
   },
   {
     number: "3",
     title: "Cook",
-    description: "Follow step-by-step instructions designed for efficiency. No food waste, just great meals.",
+    description:
+      "Follow step-by-step instructions designed for efficiency. No food waste, just great meals.",
   },
 ];
 
 const curatedPicks = [
-  { title: "BBQ Chicken Quesadilla", tag: "Tex-Mex", time: "20 mins", image: quesadilla },
-  { title: "Chicken Cordon Bleu", tag: "Comfort food", time: "40 mins", image: cordonBleu },
-  { title: "Braised Short Rib", tag: "Dinner", time: "2 hrs 30 mins", image: shortRib },
+  {
+    title: "BBQ Chicken Quesadilla",
+    tag: "Tex-Mex",
+    time: "20 mins",
+    image: quesadilla,
+  },
+  {
+    title: "Chicken Cordon Bleu",
+    tag: "Comfort food",
+    time: "40 mins",
+    image: cordonBleu,
+  },
+  {
+    title: "Braised Short Rib",
+    tag: "Dinner",
+    time: "2 hrs 30 mins",
+    image: shortRib,
+  },
 ];
 
 const faqs = [
@@ -58,15 +76,15 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#F6F5F0]" style={{ fontFamily: "'Poppins', sans-serif" }}>
+    <div
+      className="min-h-screen w-full bg-[#F6F5F0]"
+      style={{ fontFamily: "'Poppins', sans-serif" }}
+    >
       <Navbar />
 
       {/* HERO */}
       <div className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
-        <span className="inline-block text-xs font-medium text-[#4B6B3F] bg-[#EDF1E8] px-3 py-1 rounded-full mb-6">
-          Free AI Recipe Generator
-        </span>
-        <h1 className="text-[44px] md:text-[54px] leading-[1.1] font-medium text-[#22261F] mb-5 max-w-3xl mx-auto">
+        <h1 className="text-[57px] md:text-[54px] leading-[1.1] font-medium text-[#22261F] mb-5 max-w-3xl mx-auto">
           What's in your fridge?
         </h1>
         <p className="text-[#6B6F63] text-base leading-relaxed mb-9 max-w-xl mx-auto">
@@ -100,7 +118,8 @@ export default function LandingPage() {
             Master your kitchen in seconds
           </h2>
           <p className="text-[#6B6F63] text-sm text-center mb-12">
-            No food waste. No fancy grocery shopping. Just simple steps.
+            Is your fridge filled with ingredients but you're not sure what to
+            make?
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step) => (
@@ -108,7 +127,9 @@ export default function LandingPage() {
                 <div className="w-10 h-10 rounded-full bg-[#4B6B3F] text-white flex items-center justify-center mx-auto mb-4 text-sm font-medium">
                   {step.number}
                 </div>
-                <h3 className="text-[16px] font-medium text-[#22261F] mb-2">{step.title}</h3>
+                <h3 className="text-[16px] font-medium text-[#22261F] mb-2">
+                  {step.title}
+                </h3>
                 <p className="text-[#6B6F63] text-sm leading-relaxed max-w-xs mx-auto">
                   {step.description}
                 </p>
@@ -122,8 +143,12 @@ export default function LandingPage() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-[26px] font-medium text-[#22261F] mb-1">Today's Curated Picks</h2>
-            <p className="text-[#6B6F63] text-sm">Based on common ingredients this week.</p>
+            <h2 className="text-[26px] font-medium text-[#22261F] mb-1">
+              Today's Curated Picks
+            </h2>
+            <p className="text-[#6B6F63] text-sm">
+              Based on common ingredients this week.
+            </p>
           </div>
           <button
             onClick={() => navigate("/discover")}
@@ -150,7 +175,9 @@ export default function LandingPage() {
                 <span className="text-xs font-medium text-[#4B6B3F] bg-[#EDF1E8] px-2 py-0.5 rounded-full">
                   {pick.tag}
                 </span>
-                <h3 className="text-[15px] font-medium text-[#22261F] mt-2">{pick.title}</h3>
+                <h3 className="text-[15px] font-medium text-[#22261F] mt-2">
+                  {pick.title}
+                </h3>
                 <p className="text-xs text-[#6B6F63] mt-1">{pick.time}</p>
               </div>
             </div>
@@ -166,7 +193,10 @@ export default function LandingPage() {
           </h2>
           <div className="flex flex-col gap-3">
             {faqs.map((faq, index) => (
-              <div key={index} className="border border-[#EAE8DE] rounded-lg overflow-hidden">
+              <div
+                key={index}
+                className="border border-[#EAE8DE] rounded-lg overflow-hidden"
+              >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full flex items-center justify-between px-5 py-4 text-left text-[15px] font-medium text-[#22261F]"
@@ -178,7 +208,9 @@ export default function LandingPage() {
                   />
                 </button>
                 {openFaq === index && (
-                  <p className="px-5 pb-4 text-sm text-[#6B6F63] leading-relaxed">{faq.a}</p>
+                  <p className="px-5 pb-4 text-sm text-[#6B6F63] leading-relaxed">
+                    {faq.a}
+                  </p>
                 )}
               </div>
             ))}
@@ -192,7 +224,8 @@ export default function LandingPage() {
           Ready to stop wasting food?
         </h2>
         <p className="text-[#6B6F63] text-sm mb-8 max-w-md mx-auto">
-          Join home cooks discovering new favorites from what's already in their fridge.
+          Join home cooks discovering new favorites from what's already in their
+          fridge.
         </p>
         <button
           onClick={() => navigate("/app")}
