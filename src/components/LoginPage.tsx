@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
+import trufflePasta from "../assets/truffle-pasta.jpg";
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
@@ -29,20 +30,48 @@ export default function LoginPage() {
   return (
     <div
       className="min-h-screen w-full flex bg-[#F6F5F0]"
-      style={{ fontFamily: "'Work Sans', sans-serif" }}
+      style={{ fontFamily: "'Poppins', sans-serif" }}
     >
+      <style>{`
+      @keyframes wipeIn {
+        from { clip-path: inset(0 100% 0 0); }
+        to { clip-path: inset(0 0 0 0); }
+      }
+      .wipe-in {
+        animation: wipeIn 1.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      }
+    `}</style>
       {/* LEFT PANEL */}
-      <div className="hidden md:flex md:w-1/2 bg-[#3E5A34] relative overflow-hidden flex-col justify-between p-12">
-        <div className="flex items-center gap-2 text-[#F6F5F0]">
-          {/*<Carrot size={22} strokeWidth={2} />*/}
+      <div className="hidden md:flex md:w-1/2 relative overflow-hidden flex-col justify-between p-12">
+        {/* Layer 1: the photo, animates in with a wipe */}
+        <div
+          className="absolute inset-0 wipe-in"
+          style={{
+            backgroundImage: `url(${trufflePasta})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+
+        {/* Layer 2: dark gradient, sits on top of the photo, stays still */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(34,38,31,0.55), rgba(34,38,31,0.75))",
+          }}
+        />
+
+        {/* Layer 3: your actual content, sits above both */}
+        <div className="relative z-10 flex items-center gap-2 text-[#F6F5F0]">
           <span
             style={{ fontFamily: "'Poppins', serif" }}
-            className="text-lg font-medium tracking-tight"
+            className="text-lg font-semibold tracking-tight"
           >
             Recipe Generator
           </span>
         </div>
-        <div>
+        <div className="relative z-10">
           <h1
             style={{ fontFamily: "'Poppins', serif" }}
             className="text-[42px] leading-[1.15] font-medium text-[#F6F5F0] mb-4"
