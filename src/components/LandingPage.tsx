@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Navbar from "./Navbar";
-import steakMash from "../assets/steak-mash.jpg";
+/*import steakMash from "../assets/steak-mash.jpg";
 import truffle from "../assets/truffle-pasta.jpg";
-import dumplings from "../assets/chicken-dumplings.jpg";
+import dumplings from "../assets/chicken-dumplings.jpg";*/
 import quesadilla from "../assets/bbq-chicken-quesadilla.jpg";
 import cordonBleu from "../assets/chicken-cordon-bleu.jpg";
 import shortRib from "../assets/braised-short-rib.jpg";

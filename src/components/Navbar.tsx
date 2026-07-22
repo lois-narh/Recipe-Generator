@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Carrot } from "lucide-react";
+/*import { Carrot } from "lucide-react";*/
 
 export default function Navbar() {
   const navigate = useNavigate();
